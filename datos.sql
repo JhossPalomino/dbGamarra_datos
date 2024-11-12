@@ -192,11 +192,16 @@ update cliente set activo = '0' where id = 12;
 update cliente set activo = '0' where id = 14;
 update cliente set activo = '0' where id = 18;
 
+--- Poner datos de celulares a nulo
+
 update cliente set celular = '' where id = 9;
 update cliente set celular = '' where id = 13;
 update cliente set celular = '' where id = 17;
 
+-- Activar logicamente a un cliente y actualizar su email
 update cliente set activo = '1', email = 'oscar.quiroz@yahoo.es' where id = 18;
+
+--- Actualizar nuevos datos a la tabla cliente
 
 INSERT INTO cliente (id, tipo_documento, numero_documento, nombres, apellidos, email, celular, fecha_nacimiento, activo) VALUES 
 (21, 'DNI', '88225463', 'Gustavo Tadeo', 'Quispe Solorzano', 'gustavo.quispe@gmail.com', '', '2001-10-13', 1),
@@ -206,22 +211,36 @@ INSERT INTO cliente (id, tipo_documento, numero_documento, nombres, apellidos, e
 (25, 'DNI', '11228514', 'Felicia', 'Marroquín Candela', 'felicia.marroquin@outlook.com', '966001472', '2006-06-06', 1),
 (26, 'DNI', '51436952', 'Luhana', 'Ortíz Rodríguez', 'luhana.ortiz@outlook.com', '960405017', '1980-11-25', 1);
 
+--- Actualizar el precio de la prenda
+
 update prenda set precio = '45.00' where id = 3; 
 
+--- Actualizar la descripcion 
+
 update prenda set descripcion = 'Corbata Michi Elegante' where id = 6;
+
+--- Eliminar fisicamente de prenda segun id
 
 delete from prenda where id = 4;
 delete from prenda where id = 9;
 select * from prenda;
 
+--- Eliminar fisicamente de vendedor segun id
+
 delete from vendedor where id = 3;
 select * from vendedor;
+
+--- Elimar fisicamente algunos clientes
 
 delete from cliente where id = 8;
 delete from cliente where id = 14;
 select * from cliente;
 
+--- desactivar el modo seguro
+
 SET SQL_SAFE_UPDATES = 0;
+
+--- Eliminar de clientes con fecha
 
 DELETE FROM cliente
 WHERE YEAR(fecha_nacimiento) = 1980;
