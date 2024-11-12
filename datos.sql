@@ -113,7 +113,7 @@ WHERE
 AND 
     i.table_schema = DATABASE();
 
-----
+---- insertar datos en la tabla cliente
     
 INSERT INto cliente (id, tipo_documento, numero_documento, nombres, apellidos, email, celular, fecha_nacimiento, activo) VALUES 
 (1, 'DNI', '7789955', 'Alberto', 'Solano Pariona', 'alberto.pariona@empresa.com', '998456103', '1970-02-10', 1),
@@ -137,11 +137,15 @@ INSERT INto cliente (id, tipo_documento, numero_documento, nombres, apellidos, e
 (19, 'DNI', '49932217', 'Verónica', 'Romero Vargas', 'veronica.romero@yahoo.com', '', '2002-08-25', 1),
 (20, 'DNI', '00253641', 'Eliseo', 'Prada Ortíz', 'eliseo.prada@yahoo.com', '', '1995-07-15', 1);
 
+--- insertar datos en vendedor
+
 insert into vendedor (id, tipo_documento, numero_documento, nombres, apellidos, salario, celular, email, activo) values 
 (1, 'DNI', '85471236', 'Enrique', 'Pérez Manco', 1500.00, '96521873', 'enrique.perez@outlook.com', 1),
 (2, 'DNI', '47259136', 'Sofía', 'Ávila Solís', 1350.00, '', '', 1),
 (3, 'DNI', '61542280', 'Marcela', 'Napaico Cama', 1600.00, '965874357', 'marcela.napaico@gmail.com', 1),
 (4, 'CNE', '742536140', 'Carmelo', 'Rodríguez Chauca', 1550.00, '', 'carmelo.rodriguez@yahoo.com', 1);
+
+--- insertar datos en prenda
 
 insert into prenda (id, descripcion, marca, cantidad, talla, precio, activo) values 
 (1, 'Pantalon Jeans', 'Levis', 60, 28, 65.80, 1),
@@ -155,11 +159,15 @@ insert into prenda (id, descripcion, marca, cantidad, talla, precio, activo) val
 (9, 'Camisa Sport', 'John Holden', 85, 16, 88.50, 1),
 (10, 'Shorts Jeans', 'Pepe Jeans', 185, 28, 77.20, 1);
 
+--- insertar datos en venta
+
 insert into venta (id, fecha_hora, activo, cliente_id, vendedor_id) values 
 (1, '2023-05-01 19:04:08', 4, 1, 1),
 (2, '2023-05-01 19:04:08', 6, 3, 1),
 (3, '2023-05-01 19:04:08', 10, 1, 1),
 (4, '2023-05-01 19:04:08', 18, 4, 1);
+
+--- insertar datos en venta_detalle
 
 insert into venta_detalle (id, cantidad, venta_id, prenda_id) values 
 (1, 1, 6, 3),
@@ -173,8 +181,12 @@ insert into venta_detalle (id, cantidad, venta_id, prenda_id) values
 (9, 4, 2, 4),
 (10, 4, 5, 3);
 
+--- actualizar numeros telefonicos
+
 update cliente set celular = '922881101' where id = 10;
 update cliente set celular = '977226604' where id = 13;
+
+--- Eliminar logicamente a clientes
 
 update cliente set activo = '0' where id = 12;
 update cliente set activo = '0' where id = 14;
